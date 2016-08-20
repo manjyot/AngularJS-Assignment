@@ -1,0 +1,32 @@
+#all-products {
+	display: table;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+article {
+	float: left;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid silver;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+article h2 {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+article button {
+	float: right;
+	margin-top: 10px;
+}
+
+.table {
+	display: inline-block;
+	vertical-align: top;
+	width: auto !important;
+}

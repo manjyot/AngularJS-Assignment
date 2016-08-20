@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="ng-app" id="ng-app" ng-app="myapp">
+<head>
+	<title>Greyloft Assignment</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/main.css"/>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/all_products.js"></script>
+	<script type="text/javascript" src="scripts/compare.js"></script>
+	<script type="text/javascript" src="scripts/controllers.js"></script>
+</head>
+<body ng-controller="CompareCtrl">
+
+	<div class="container">
+
+		<h1 style="text-align:center;">Greyloft AngularJS Assignment</h1>
+
+		<div style="margin:0 auto;" id="all-products">
+			<article ng-repeat="product in allProducts">
+				<h2>{{product.title}}</h2>
+				<img style="height:100px;width:200px;" src="images/{{product.img}}" alt="{{product.title}}">
+				<button class="btn btn-primary btn-block" ng-click="addToCompareList(product)">Add to Compare</button>
+			</article>
+		</div>
+
+		<div id="error" class="alert alert-danger fade in" ng-if="errorMessage" style="display:none; text-align:center;">
+			<a href="#" class="close" onclick="$('.alert').hide()">&times;</a>
+			{{ errorMessage }}
+		</div>
+
+		<div id="comparison-grid">
+			<table ng-repeat="group in compareList" class="table table-striped table-bordered">
+
+				<tr>
+					<th></th>
+					<td ng-repeat="img in group.img"><img style="height:150px; width:250px;" src="images/{{img}}" alt="{{img}}"></td>
+				</tr>
+
+				<tr>
+					<th>Name:</th>
+					<td ng-repeat="title in group.title">{{title}}</td>
+				</tr>
+
+				<tr>
+					<th>District:</th>
+					<td ng-repeat="district in group.district">{{district}}</td>
+				</tr>
+
+				<tr>
+					<th>Tenure:</th>
+					<td ng-repeat="tenure in group.tenure">{{tenure}}</td>
+				</tr>
+
+				<tr>
+					<th>Development Year:</th>
+					<td ng-repeat="developmentyear in group.developmentyear">{{developmentyear}}</td>
+				</tr>
+
+				<tr>
+					<th>Nearest MRT:</th>
+					<td ng-repeat="mrt in group.mrtnearest">{{mrt}} <i style="color:green;" class="fa fa-circle"></i></td>
+				</tr>
+
+				<tr>
+					<th>CBD Connectivity:</th>
+					<td ng-repeat="cbd_car in group.cbd_car"><i class="fa fa-car"></i>  {{cbd_car}}</td>
+				</tr>
+
+				<tr>
+					<th>Average PSF Price:</th>
+					<td ng-repeat="avg_psf in group.avg_psf">{{avg_psf}}</td>
+				</tr>
+
+				<tr>
+					<th>Average number of sales transactions per month:</th>
+					<td ng-repeat="avg_sales in group.avg_sales">{{avg_sales}}</td>
+				</tr>
+
+				<tr>
+					<th>Sale Liquidity Index:</th>
+					<td ng-repeat="sale_liquidity in group.sale_liquidity">{{sale_liquidity}}</td>
+				</tr>
+
+				<tr>
+					<th>Average Rental PSF:</th>
+					<td ng-repeat="avg_rental_psf in group.avg_rental_psf">{{avg_rental_psf}}</td>
+				</tr>
+
+				<tr>
+					<th>Rent Liquidity Index:</th>
+					<td ng-repeat="rent_liquidity_index in group.rent_liquidity_index">{{rent_liquidity_index}}</td>
+				</tr>
+
+				<tr>
+					<th>Average Rental Yield:</th>
+					<td ng-repeat="avg_rental_yield in group.avg_rental_yield">{{avg_rental_yield}}</td>
+				</tr>
+
+				<tr>
+					<th>Condominium Height:</th>
+					<td ng-repeat="condominium_height in group.condominium_height">{{condominium_height}}</td>
+				</tr>
+
+				<tr>
+					<th>Amenities:</th>
+					<td ng-repeat="amenities in group.amenities">{{amenities}}</td>
+				</tr>
+
+			</table>
+		</div>
+
+	</div>
+
+</body>
+</html>
